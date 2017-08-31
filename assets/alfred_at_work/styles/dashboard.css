@@ -1,0 +1,76 @@
+/*
+    MOBILE VERSION
+*/
+/* IMPORTS */
+/* CARD SYSTEM UPDATE */
+article#card_update ul.body {
+  padding: 20px 0; }
+  article#card_update ul.body li {
+    width: calc(100% - 20px);
+    padding-left: 20px;
+    font-size: 1.4rem;
+    color: #303030;
+    overflow: auto; }
+    article#card_update ul.body li.archive {
+      opacity: .5; }
+    article#card_update ul.body li span.date {
+      color: #5faaef;
+      width: 100px;
+      display: block;
+      float: left; }
+    article#card_update ul.body li span.message {
+      width: calc( 100% - 125px);
+      display: block;
+      float: left; }
+    article#card_update ul.body li span.archive {
+      width: 25px;
+      display: block;
+      float: left;
+      color: #e15944; }
+  article#card_update ul.body li + li {
+    margin-top: 15px; }
+
+/* CARD NEWSLETER */
+table.body {
+  border-spacing: 0px;
+  color: #303030;
+  width: calc(100% - 20px);
+  margin: 20px; }
+  table.body tbody tr {
+    height: 25px;
+    width: 100%;
+    font-size: 1.4rem; }
+    table.body tbody tr td:first-child {
+      color: #5faaef;
+      width: 90px; }
+    table.body tbody tr td.pending:first-child {
+      color: #e15944; }
+    table.body tbody tr td:nth-child(2) {
+      width: 90px; }
+    table.body tbody tr td a {
+      cursor: pointer;
+      font-weight: 400;
+      color: #e15944; }
+
+/* CARD ANALITICS */
+article#card_analitics div.body {
+  position: relative;
+  padding: 20px 0; }
+  article#card_analitics div.body h3 {
+    color: #303030;
+    text-align: center;
+    width: 100%;
+    font-size: 1.5rem; }
+
+/*
+    TABLET VERSION
+*/
+/*
+    SMALL SCREEN COMPUTER VERSION
+*/
+/*
+    LARGE SCREEN COMPUTER VERSION
+*/
+/*
+    SUPER LARGE SCREEN COMPUTER VERSION
+*/

@@ -1,0 +1,128 @@
+/* IMPORTS */
+@import "ui_mixines";
+
+/*
+    PHONE VERSION
+*/
+section.shop_header{
+	width: 100%;
+	background-color: $light_pink;
+	position: relative;
+
+	&:after{
+		content: '';
+		width: 100%;
+		height: 30px;
+		display: block;
+		position: absolute;
+		bottom: -26px;
+		background-image:radial-gradient(circle at center 0px, rgba($light_pink,0) 20px, rgba($light_pink,1) 0);
+		background-repeat:repeat-x;
+		background-size: 30px 50px;
+		background-color: $white;
+	}
+	div.inner_container{
+		@include container_sizing( 1100px );
+		margin: 0 auto;
+		height: 100%;
+		display: flex;
+		min-height: 50vh;
+		align-items: center;
+		justify-content: space-around;
+
+		h3{
+			@include primary_title( $dark_grey );
+			text-align: center;
+		
+		}
+	}
+}
+
+section.shop_last_discovery, section.shop_all_collections{
+	div.inner_container{
+		@include container_sizing( 900px );
+		margin-bottom: 0px;
+
+		div.header{
+			width: 100%;
+	
+			h3{
+				@include primary_title( $dark_grey );
+				text-align: center;
+				padding: 20px 0; 
+			}
+		}
+		div.body{}
+	}
+}
+
+section.display_more{
+	div.inner_container{
+		@include container_sizing( 900px );
+		margin-top: 50px;
+
+		a.button{
+			@include primary_button( $med_blue, false, 40px );
+			max-width: 200px;
+		}
+	}
+}
+
+
+/*
+    TABLET VERSION
+*/
+@media screen and (min-width: 768px ){
+	section.shop_last_discovery, section.shop_all_collections{
+		div.inner_container{
+			div.header{
+				h3{}
+			}
+			div.body{}
+		}
+	}
+}
+
+
+/*
+    SMALL SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 992px ){
+	section.shop_last_discovery, section.shop_all_collections{
+		div.inner_container{
+			div.header{
+				h3{}
+			}
+			div.body{}
+		}
+	}
+}
+
+/*
+    LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1200px ){
+	section.shop_last_discovery, section.shop_all_collections{
+		div.inner_container{
+			margin-bottom: 0px;
+
+			div.header{
+				h3{}
+			}
+			div.body{}
+		}
+	}
+
+	section.display_more{
+		div.inner_container{
+			margin-top: 0px;
+			a.button{}
+		}
+	}
+}
+
+
+/*
+    SUPER LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1600px ){}

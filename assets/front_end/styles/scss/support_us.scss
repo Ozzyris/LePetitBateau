@@ -1,0 +1,187 @@
+/* IMPORTS */
+@import "ui_mixines";
+
+/*
+    PHONE VERSION
+*/
+section.support_header{
+	width: 100%;
+
+	div.inner_container{
+		@include container_sizing( 1100px );
+		display: flex;
+		min-height: 50vh;
+		align-items: center;
+		justify-content: space-around;
+
+		h3{
+			@include primary_title( $dark_grey );
+			text-align: center;
+		
+		}
+	}
+}
+
+section.support_main_team{
+	background-color: $med_blue;
+	position: relative;
+
+	&:after{
+		content: '';
+		width: 100%;
+		height: 50px;
+		display: block;
+		position: absolute;
+		top: -50px;
+		background-image: radial-gradient(circle at center 0px, rgba($med_blue,0) 20px, rgba($med_blue,1) 0);
+		background-repeat:repeat-x;
+		background-size: 30px 50px;
+		background-color: $white;
+	}
+	div.inner_containter{
+		@include container_sizing( 1100px );
+		margin-top: 0;
+		padding: 100px 0;
+
+		ul{
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+
+
+			li{
+				div.body{
+					width: 100%;
+					margin-bottom: 20px;
+
+					div.image_container{
+						margin: 0 auto;
+						width: 200px;
+						height: 200px;
+						background-color: rgba($white, .4);
+						background-size: cover;
+						background-position: center center;
+						border-radius: 50%;
+					}
+				}
+				div.footer{
+					width: 100%;
+					p{
+						@include secondary_title( $white );
+						font-weight: 400;
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}
+
+section.support_secondary_team{  
+	div.inner_containter{
+		@include container_sizing( 1100px );
+		margin-top: 0;
+
+		ul{
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: space-around;
+
+
+			li{
+				div.body{
+					width: 100%;
+					margin-bottom: 20px;
+
+					div.image_container{
+						margin: 0 auto;
+						width: 200px;
+						height: 200px;
+						background-color: rgba($med_blue, .4);
+						background-size: cover;
+						background-position: center center;
+						border-radius: 50%;
+					}
+				}
+				div.footer{
+					width: 100%;
+					p{
+						@include secondary_title( $dark_grey );
+						font-weight: 400;
+						text-align: center;
+					}
+				}
+			}
+		}
+	}
+}
+
+section.support_who_we_are{
+	div.inner_container{
+		@include container_sizing( 800px );
+
+		div.header{
+			h3{
+				@include primary_title( $dark_grey );
+				text-align: center;
+				padding: 20px 0; 
+			}
+		}
+		div.body{
+			p{
+				@include primary_text( $dark_grey );
+				margin: 15px 0;
+			}
+		}
+	}
+}
+
+section.support_join{
+	div.inner_container{
+		@include container_sizing( 300px );
+
+		div.header{
+			margin-bottom: 40px;
+
+			h3{
+				@include primary_title( $dark_grey );
+				text-align: center;
+			}
+		}
+		div.body{
+			div.input_container{
+				@include input_text( $med_blue );
+			}
+		}
+		div.footer{
+			a{
+				@include primary_button( $med_blue, true, 40px );
+			}
+		}
+	}
+}
+
+
+/*
+    TABLET VERSION
+*/
+@media screen and (min-width: 768px ){}
+
+
+/*
+    SMALL SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 992px ){}
+
+/*
+    LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1200px ){}
+
+
+/*
+    SUPER LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1600px ){}

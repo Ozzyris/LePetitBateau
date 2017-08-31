@@ -1,0 +1,104 @@
+/* IMPORTS */
+@import "ui_mixines";
+
+
+section#login, section#forgot_password, section#set_password{
+	background-color: $med_yellow;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	height: 100vh;
+
+	div#from_container{
+		position: relative;
+		margin: 0 auto;
+		display: block;
+		top: 150px;
+		width: 90%;
+		max-width: 300px; 
+		padding: 10px 20px;
+		background-color: $white;
+		box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+		overflow: auto;
+		z-index: 1;
+	
+		div.input_group{
+			width: 100%;
+			overflow: auto;
+			margin-bottom: 15px;
+			label{
+				color: rgba(0, 0, 0, 0.5);
+				font-size: 1.2rem;
+			}
+			input{
+				width: 100%;
+				display: inline-block;
+				box-sizing: border-box;
+				padding: 0px;
+				margin: 8px 0px 10px 0px;
+				height: 30px;
+				border: none;
+				border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+				color: rgba(0, 0, 0, 0.87);
+				font-size: 16px;
+				vertical-align: top;
+				transition: border 0.56s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+		
+				&:focus{ border-bottom: 1px solid $med_blue; }
+				&.wrong{ border-bottom: 1px solid $med_red; }
+			}
+			a.link{
+				float: right;
+				font-size: 1.3rem;
+				color: $med_red;
+				transition: color 200ms;
+				margin-top: 0;
+	
+				&:hover{
+					color: $light_red;
+				}
+			}
+		}
+
+
+		a.input_button{
+			float: right;
+			padding: 7px 10px;
+			margin: 0 5px;
+			color: $med_blue;
+			border: none;
+			font-family: 'Roboto Slab';
+			font-size: 14px;
+			font-weight: 400;
+			background-color: $white;
+			border-radius: 3px;
+			cursor: pointer;
+			text-decoration: none;
+
+			&.blue{
+				background-color: $med_blue;
+				color: $white;
+
+				&:hover{
+					background-color: $light_blue;
+				}
+			}
+			&.red{
+				background-color: $white;
+				color: $med_red;
+
+				&:hover{
+					background-color: $med_red;
+					color: $white;
+				}
+			}
+		}
+	}
+	img#background_img{
+		position: absolute;
+		bottom: 0;
+		width: 80%;
+		left: calc(50% - 40%);
+		z-index:0;
+	}
+}

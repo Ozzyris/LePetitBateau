@@ -1,0 +1,117 @@
+/*
+    MOBILE VERSION
+*/
+
+/* IMPORTS */
+@import "ui_mixines";
+
+/* CARD SYSTEM UPDATE */
+article#card_update{
+	div.header{
+		h1{}
+	}
+	ul.body{
+		padding: 20px 0;
+
+		li{
+			width: calc(100% - 20px);
+			padding-left: 20px; 
+			font-size: 1.4rem;
+			color: #303030;
+			overflow: auto;
+
+			&.archive{ opacity: .5; }
+			span.date{
+				color: $med_blue;
+				width: 100px;
+				display: block;
+				float: left;
+			}
+			span.message{
+				width: calc( 100% - 125px );
+				display: block;
+				float: left;
+			}
+			span.archive{
+				width: 25px;
+				display: block;
+				float: left;
+				color: $med_red;
+			}
+		}
+		li + li{ margin-top: 15px; }
+	}
+}
+
+/* CARD NEWSLETER */
+article#card_newsletter{}
+	div.header{
+		h1{}
+	}
+	table.body{
+		border-spacing: 0px;
+	    color: #303030;
+	    width: calc(100% - 20px);
+	    margin: 20px;
+
+	    tbody{
+	    	tr{
+				height:25px;
+				width: 100%;
+				font-size: 1.4rem;
+
+				td{
+					&:first-child{
+						color: $med_blue;
+						width: 90px;
+					}
+					&.pending:first-child{ color: $med_red; }
+					&:nth-child( 2 ){ width: 90px; }
+					a{
+						cursor: pointer;
+						font-weight: 400;
+						color: $med_red;
+					}
+				}
+			}
+	    }
+	}
+
+/* CARD ANALITICS */
+article#card_analitics{
+	div.header{
+		h1{}
+	}
+	div.body{
+		position: relative;
+		padding: 20px 0;
+
+		h3{	
+			color: #303030;
+			text-align: center;
+			width: 100%;
+			font-size: 1.5rem;
+		}
+	}
+}
+
+
+/*
+    TABLET VERSION
+*/
+@media screen and (min-width: 768px ){}
+
+/*
+    SMALL SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 992px ){}
+
+/*
+    LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1200px ){}
+
+/*
+    SUPER LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1600px ){}

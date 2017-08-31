@@ -1,0 +1,488 @@
+// =============================================================================
+// VARIABLE
+// =============================================================================
+	$dark_grey: #353535;
+	$white: #ffffff;
+
+	$tonic_blue: #01ffff;
+	$med_blue: #2f80ef;
+	$light_blue: lighten(#2f80ef, 15%);
+
+	$light_orange: #da9700;
+	$med_orange: #ef562f;
+
+	$light_pink: #f8d2ca;
+
+	$light_green: #e8ecd3;
+
+	$animation_lenght: 300ms;
+
+
+// =============================================================================
+// String Replace
+// =============================================================================
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+
+// =============================================================================
+// CONTAINTER SIZING
+// =============================================================================
+@mixin container_sizing( $max_size ){
+	width: 90%;
+	max-width: $max_size;
+	margin: 100px auto;
+}
+
+// =============================================================================
+// FONTS
+// =============================================================================
+@mixin primary_title( $color ){
+	font-size: 2.5rem;
+	letter-spacing: 5px;
+	font-weight: 200;
+	color: $color;
+
+	@media screen and (min-width: 768px ){ font-size: 4rem; }
+}
+
+@mixin secondary_title( $color ){
+	font-size: 2.2rem;
+	font-weight: 600;
+	color: $color;
+
+	@media screen and (min-width: 992px ){ font-size: 2.5rem; }
+}
+
+
+@mixin third_title( $color ){
+	font-size: 2rem;
+	font-weight: 400;
+	color: $color;
+
+	@media screen and (min-width: 992px ){ font-size: 2.5rem; }
+}
+
+@mixin primary_text( $color ){
+	font-size: 2.2rem;
+	font-weight: 400;
+	color: $color;
+	letter-spacing: .5px;
+	line-height: 25px;
+}
+
+@mixin seconday_text(){}
+
+@mixin primary_link( $color ){
+	display: block;
+	font-size: 2rem;
+	color: $color;
+	font-weight: 800;
+	transition: color 200ms;
+	
+	font-size: 1.8rem;
+	@media screen and (min-width: 992px ){ font-size: 2rem; }
+	&:hover{
+		color: lighten($color, 15%);
+	}
+}
+
+@mixin seconday_text(){}
+
+@mixin primary_button( $color, $is_ghost, $line_height ){
+	display: block;
+	font-size: 2rem;
+	background-color: $color;
+	border: 1px solid $color;
+	color: $white;
+	text-align: center;
+	margin: 0 auto;
+	line-height: $line_height;
+	font-weight: 800;
+	transition: color 200ms;
+	font-size: 1.8rem;
+	transition: all 200ms;
+
+	@if $is_ghost == true {
+		background-color: $white;
+		color: $color;
+	}
+	@media screen and (min-width: 992px ){ font-size: 2rem; }
+	&:hover{
+		background-color: lighten($color, 15%);
+		border-color: lighten($color, 15%);
+		color: $white;
+
+		@if $is_ghost == true {
+			background-color: $color;
+			color: $white;
+			border-color: $color;
+		}
+	}
+}
+
+@mixin seconday_text(){}
+
+@mixin input_text( $color ){
+	margin: 20px auto;
+	label{
+		color: $color;
+		font-weight: 600;
+		font-size: 1.8rem;
+		width: 100%;
+		display: block;
+		margin-bottom: 10px;
+		font-family: 'neutra';
+	}
+	input{
+		border: 1px solid $color;
+		font-family: 'neutra';
+		font-size: 1.8rem;
+		background-color: transparent;
+		color: $color;
+		padding: 8px 12px;
+		width: calc( 100% - 26px);
+		transition: all 200ms;
+
+		&:focus{
+			background-color: $color;
+			color: $white;
+		}
+	}
+	textarea{
+		border: 1px solid $color;
+		font-family: 'neutra';
+		font-size: 1.8rem;
+		resize: none;
+		background-color: transparent;
+		color: $med_blue;
+		padding: 8px 12px;
+		height: 100px;
+		width: calc( 100% - 26px);
+		transition: all 200ms;
+
+		&:focus{
+			background-color: $color;
+			color: $white;
+		}
+	}
+}
+
+// =============================================================================
+// INPUT
+// =============================================================================
+@mixin primary_input( $type, $primary_color, $secondary_color, $is_required){
+	padding: 10px 0;
+
+	@if $type == 'text'{		
+		label{
+			font-family: 'neutra';
+			font-size: 1.2rem;
+			font-weight: 200;
+			color: rgba($secondary_color, .5);
+			display: block;
+			width: 100%;
+			padding-bottom: 5px;
+			
+			@if $is_required == true{
+				&:after{
+					content: '*';
+					color: rgba($med_orange, .8);
+					margin: 0 0 0 5px;
+				}
+			}
+		}
+		input{
+			width: calc( 100% - 26px);
+			padding: 8px 12px;
+			color: $secondary_color;
+			font-family: 'neutra';
+			font-size: 1.6rem;
+			font-weight: 400;
+			line-height: 25px;
+			border: none;
+			border-bottom: 1px solid rgba($secondary_color, .5);
+			transition: all 200ms;
+		
+			&:focus{ border-color: $primary_color; }
+			&:disabled { background-color: rgba($dark_grey, .1); }
+		}
+		&.wrong{
+			label { color: rgba($med_orange, .5); }
+			input {
+				border-bottom: 1px solid rgba($med_orange, .5);;
+			  
+				&:focus{ border-color: $primary_color; }  
+			}
+		}
+	}
+
+	@else if $type == 'textarea'{
+		label{
+			font-family: 'neutra';
+			font-size: 1.2rem;
+			font-weight: 200;
+			color: rgba($secondary_color, .5);
+			display: block;
+			width: 100%;
+			padding-bottom: 5px;
+			
+			@if $is_required == true{
+				&:after{
+					content: '*';
+					color: rgba($med_orange, .8);
+					margin: 0 0 0 5px;
+				}
+			}
+		}
+		textarea{
+			border: none;
+			border-bottom: 1px solid $secondary_color;
+			font-family: 'neutra';
+			font-size: 1.6rem;
+			resize: none;
+			padding: 8px 12px;
+			width: calc( 100% - 26px);
+			min-height: 75px;
+			color: $secondary_color;
+			transition: all 200ms;
+		
+			&:focus{ border-color: $primary_color; }
+		}
+		&.wrong{
+			label { color: rgba($med_orange, .5); }
+			textarea {
+				border-color: $med_orange;
+				
+				&:focus{ border-color: $primary_color; }  
+			}
+		}
+	}
+
+	@else if $type == 'select'{
+		label{
+			font-family: 'neutra';
+			font-size: 1.2rem;
+			font-weight: 200;
+			color: rgba($secondary_color, .5);
+			display: block;
+			width: 100%;
+			padding-bottom: 5px;
+			
+			@if $is_required == true{
+				&:after{
+					content: '*';
+					color: rgba($med_orange, .5);
+					margin: 0 0 0 5px;
+				}
+			}
+		}
+		div.selectwrapper {
+			width: 100%;
+			position: relative;
+			border-bottom: 1px solid $secondary_color;
+			min-height: 41px;
+
+			&:after{
+				content: "";
+				position: absolute;
+				top: 15px;
+				right: 15px;
+				border-bottom: 0;
+				border-left: 6px solid transparent;
+				border-right: 6px solid transparent;
+				border-top: 6px solid rgba($secondary_color, .5);
+				pointer-events: none;
+				transition: all 200ms;
+			}
+			&:hover::after{ border-top-color: rgba($primary_color, .5); }
+			select{
+				border: none;
+				border-radius: 0;
+				font-family: 'neutra';
+				font-size: 1.6rem;
+				width: calc( 100% - 26px);
+				padding: 8px 12px;
+				background: transparent;
+				color: $secondary_color;
+				transition: all 200ms;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+			}
+		}
+		&.wrong{
+			label { color: rgba($med_orange, .5); }
+			div.selectwrapper{
+				border-color: rgba($med_orange, .5);
+				
+				&:after{border-top-color: rgba($med_orange, .5); }
+				&:hover::after{ border-top-color: rgba($primary_color, .5); }
+			}
+		}
+	}
+  
+	@else if $type == 'checkbox'{
+		overflow: auto;
+		
+		label{
+			font-family: 'neutra';
+			font-size: 1.6rem;
+			font-weight: 400;
+			color: $secondary_color;
+			display: block;
+			width: calc(100%-25px);
+			line-height: 20px;
+			margin-left: 5px;
+			float: left;
+		}
+		input{
+			float: left;
+			margin: 0px 5px 0 5px;
+			width: 20px;
+			height: 20px;
+			border: 1px solid $secondary_color;
+			padding: 2px;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			position: relative;
+			
+			&:checked{
+				border-color: $primary_color;
+				&:after {
+					content: '';
+					display: block;
+					margin-top: 1px;
+					margin-left: 4px;
+					width: 4px;
+					height: 8px;
+					border: solid $primary_color;
+					border-width: 0 2px 2px 0;
+					transform: rotate(45deg);
+				}
+			}
+		}
+		&.wrong{
+			label{
+				color: rgba($med_orange, .5);
+			}
+			input{
+				border-color: rgba($med_orange, .5);
+				
+				&:after{ border-color: rgba($med_orange, .5); }
+			}
+		}
+	}
+  
+	@else if $type == 'radio'{
+		overflow: auto;
+		
+		label{
+			font-family: 'neutra';
+			font-size: 1.6rem;
+			font-weight: 400;
+			color: $secondary_color;
+			display: block;
+			width: calc(100%-25px);
+			line-height: 20px;
+			margin-left: 5px;
+			float: left;
+		}
+		input{
+			float: left;
+			margin: 0px 5px 0 5px;
+			width: 20px;
+			height: 20px;
+			border: 1px solid $secondary_color;
+			border-radius: 50%;
+			padding: 2px;
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			position: relative;
+		  
+			&:checked{
+				border-color: $primary_color;
+				&:after {
+					content: '';
+					display: block;
+					margin-top: 1px;
+					margin-left: 4px;
+					width: 4px;
+					height: 8px;
+					border: solid $primary_color;
+					border-width: 0 2px 2px 0;
+					transform: rotate(45deg);
+				}
+			}
+		}
+		&.wrong{
+			label{
+				color: rgba($med_orange, .5);
+			}
+			input{
+				border-color: rgba($med_orange, .5);
+				
+				&:after{ border-color: rgba($med_orange, .5); }
+			}
+		}
+	}
+}
+
+
+/*
+    TABLET VERSION
+*/
+@media screen and (min-width: 768px ){}
+
+
+/*
+    SMALL SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 992px ){}
+
+/*
+    LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1200px ){}
+
+
+/*
+    SUPER LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1600px ){}

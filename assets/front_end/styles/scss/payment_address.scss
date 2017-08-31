@@ -1,0 +1,75 @@
+/* IMPORTS */
+@import "ui_mixines";
+
+/*
+    PHONE VERSION
+*/
+section.payment_user_information{
+	div.header{}
+	div.body{
+		@include container_sizing(400px);
+		form.form_payment_adress{
+			div.input_container{
+				display: flex;
+				width: 100%;
+
+				div.input_group{
+					width: 100%;
+
+					&.text{
+						@include primary_input( 'text', $med_blue, $dark_grey, true);
+					}
+					&.select{
+						@include primary_input( 'select', $med_blue, $dark_grey, true);
+					}
+					&:first-child:nth-last-child(2), &:first-child:nth-last-child(2) ~ div {
+						width: 50%;
+
+						&:nth-child( 2 ){
+							margin-left: 10px;
+						}
+					}
+					p{
+						display: none;
+						font-size: 1.4rem;
+						color: $med_orange;
+						margin-top: 10px;
+						margin-bottom: 15px;
+
+						&.active{
+							display: block;
+						}
+					}
+				}
+			}
+		}
+	}
+	div.footer{
+		@include container_sizing(200px);
+
+		a{
+			@include primary_button( $med_blue, false, 50px );
+		}
+	}
+}
+
+/*
+    TABLET VERSION
+*/
+@media screen and (min-width: 768px ){}
+
+
+/*
+    SMALL SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 992px ){}
+
+/*
+    LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1200px ){}
+
+/*
+    SUPER LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1600px ){}

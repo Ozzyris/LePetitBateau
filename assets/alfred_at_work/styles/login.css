@@ -1,0 +1,81 @@
+/* IMPORTS */
+section#login, section#forgot_password, section#set_password {
+  background-color: #fdce6d;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  height: 100vh; }
+  section#login div#from_container, section#forgot_password div#from_container, section#set_password div#from_container {
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    top: 150px;
+    width: 90%;
+    max-width: 300px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    z-index: 1; }
+    section#login div#from_container div.input_group, section#forgot_password div#from_container div.input_group, section#set_password div#from_container div.input_group {
+      width: 100%;
+      overflow: auto;
+      margin-bottom: 15px; }
+      section#login div#from_container div.input_group label, section#forgot_password div#from_container div.input_group label, section#set_password div#from_container div.input_group label {
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.2rem; }
+      section#login div#from_container div.input_group input, section#forgot_password div#from_container div.input_group input, section#set_password div#from_container div.input_group input {
+        width: 100%;
+        display: inline-block;
+        box-sizing: border-box;
+        padding: 0px;
+        margin: 8px 0px 10px 0px;
+        height: 30px;
+        border: none;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+        color: rgba(0, 0, 0, 0.87);
+        font-size: 16px;
+        vertical-align: top;
+        transition: border 0.56s cubic-bezier(0.4, 0, 0.2, 1) 0s; }
+        section#login div#from_container div.input_group input:focus, section#forgot_password div#from_container div.input_group input:focus, section#set_password div#from_container div.input_group input:focus {
+          border-bottom: 1px solid #5faaef; }
+        section#login div#from_container div.input_group input.wrong, section#forgot_password div#from_container div.input_group input.wrong, section#set_password div#from_container div.input_group input.wrong {
+          border-bottom: 1px solid #e15944; }
+      section#login div#from_container div.input_group a.link, section#forgot_password div#from_container div.input_group a.link, section#set_password div#from_container div.input_group a.link {
+        float: right;
+        font-size: 1.3rem;
+        color: #e15944;
+        transition: color 200ms;
+        margin-top: 0; }
+        section#login div#from_container div.input_group a.link:hover, section#forgot_password div#from_container div.input_group a.link:hover, section#set_password div#from_container div.input_group a.link:hover {
+          color: #f3bbb2; }
+    section#login div#from_container a.input_button, section#forgot_password div#from_container a.input_button, section#set_password div#from_container a.input_button {
+      float: right;
+      padding: 7px 10px;
+      margin: 0 5px;
+      color: #5faaef;
+      border: none;
+      font-family: 'Roboto Slab';
+      font-size: 14px;
+      font-weight: 400;
+      background-color: #ffffff;
+      border-radius: 3px;
+      cursor: pointer;
+      text-decoration: none; }
+      section#login div#from_container a.input_button.blue, section#forgot_password div#from_container a.input_button.blue, section#set_password div#from_container a.input_button.blue {
+        background-color: #5faaef;
+        color: #ffffff; }
+        section#login div#from_container a.input_button.blue:hover, section#forgot_password div#from_container a.input_button.blue:hover, section#set_password div#from_container a.input_button.blue:hover {
+          background-color: #d3e8fb; }
+      section#login div#from_container a.input_button.red, section#forgot_password div#from_container a.input_button.red, section#set_password div#from_container a.input_button.red {
+        background-color: #ffffff;
+        color: #e15944; }
+        section#login div#from_container a.input_button.red:hover, section#forgot_password div#from_container a.input_button.red:hover, section#set_password div#from_container a.input_button.red:hover {
+          background-color: #e15944;
+          color: #ffffff; }
+  section#login img#background_img, section#forgot_password img#background_img, section#set_password img#background_img {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    left: calc(50% - 40%);
+    z-index: 0; }

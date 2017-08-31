@@ -1,0 +1,155 @@
+/* IMPORTS */
+@import "ui_mixines";
+
+/*
+    PHONE VERSION
+*/
+section.artworks_header{
+	width: 100%;
+	background-color: $light_pink;
+	position: relative;
+
+	&:after{
+		content: '';
+		width: 100%;
+		height: 50px;
+		display: block;
+		position: absolute;
+		bottom: -50px;
+		background-image:radial-gradient(circle at center 0px, rgba($light_pink,0) 20px, rgba($light_pink,1) 0);
+		background-repeat:repeat-x;
+		background-size: 30px 50px;
+		background-color: $white;
+		transform: rotate( 180deg );
+	}
+	div.inner_container{
+		@include container_sizing( 1100px );
+		margin: 0 auto;
+		height: 100%;
+		display: flex;
+		min-height: 50vh;
+		align-items: center;
+		justify-content: space-around;
+
+		div.header_image_container{
+			background-color: red;
+			width: 90%;
+			max-width: 800px;
+			height: 400px;
+		}
+	}
+}
+
+section.artworks_description{
+	position: relative;
+
+	div.inner_container{
+		@include container_sizing( 1000px );
+
+		div.header_image_container{
+			width: 100%;
+			min-height: 70vh;
+			background-size: cover;
+			background-position: center center;
+			margin-top: -60vh;
+		}
+		div.breadcrumb{
+			margin: 30px 0;
+
+			a.link.blue{
+				@include primary_link( $med_blue );
+			}
+		}
+		div.title_container{
+			div.inner_container_container{
+				@include container_sizing( 500px );
+				margin: 60px auto 0;
+
+				h3{
+					@include third_title( $dark_grey );
+					text-align: center;
+				}
+				div.text{
+					margin-top: 20px;
+					p{
+						@include primary_text( $dark_grey );
+						text-align: center;
+					}
+				}
+				
+			}
+		}
+		div.description_container{
+			margin: 60px auto 20px;
+
+			div.inner_container_container{
+				@include container_sizing( 500px );
+				margin: 0 auto;
+
+				h3{
+					@include third_title( $dark_grey );
+					text-align: center;
+					margin-bottom: 20px;
+				}
+				p{
+					@include primary_text( $dark_grey );
+					text-align: center;
+				}
+			}
+		}
+		div.price_container{
+			div.inner_container_container{
+				@include container_sizing( 500px );
+				margin: 0 auto;
+
+				h2{
+					@include secondary_title( $med_blue );
+					text-align: center;
+					margin: 60px auto 20px;
+				}
+				a.button.blue{
+					@include primary_button( $med_blue, false, 40px );
+					max-width: 200px;
+				}
+			}
+		}
+		
+	}
+}
+
+section.artworks_same_collection{
+	div.inner_container{
+		@include container_sizing( 900px );
+
+		div.header{
+			h3{
+				@include secondary_title( $dark_grey );
+				text-align: center;
+				padding: 20px 0;
+			}
+		}
+		div.body{}
+	}
+}
+
+/*
+    TABLET VERSION
+*/
+@media screen and (min-width: 768px ){}
+
+
+/*
+    SMALL SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 992px ){}
+
+/*
+    LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1200px ){}
+
+
+/*
+    SUPER LARGE SCREEN COMPUTER VERSION
+*/
+@media screen and (min-width: 1600px ){}

@@ -1,0 +1,215 @@
+// =============================================================================
+// VARIABLE
+// =============================================================================
+
+	$light_yellow: lighten(rgb(253, 206, 109) ,25%);
+	$med_yellow: rgb(253, 206, 109);
+	$dark_yellow: darken(rgb(253, 206, 109), 7%);
+
+	$light_blue: lighten(rgb(95, 170, 239) ,25%);
+	$med_blue: rgb(95, 170, 239);
+	$dark_blue: #2c3e50;
+
+	$light_red: lighten(rgb(225, 89, 68) ,25%);
+	$med_red: rgb(225, 89, 68);
+	$dark_red: darken(rgb(225, 89, 68), 7%);
+
+	$light_grey: #d7dcdf;
+	$med_grey: rgb(48, 48, 48);
+	$dark_grey: darken(rgb(48, 48, 48), 7%);
+
+	$light_green: lighten(#3FB39D ,25%);
+	$med_green: #3FB39D;
+	$dark_green: darken(#3FB39D, 7%);
+
+	$white: #ffffff;
+
+
+// =============================================================================
+// String Replace
+// =============================================================================
+@function str-replace($string, $search, $replace: "") {
+	$index: str-index($string, $search);
+
+	@if $index {
+		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+
+	@return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: eot woff2 woff ttf svg) {
+	$src: null;
+
+	$extmods: (
+		eot: "?",
+		svg: "#" + str-replace($name, " ", "_")
+	);
+
+	$formats: (
+		otf: "opentype",
+		ttf: "truetype"
+	);
+
+	@each $ext in $exts {
+		$extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+		$format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+		$src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+	}
+
+	@font-face {
+		font-family: quote($name);
+		font-style: $style;
+		font-weight: $weight;
+		src: $src;
+	}
+}
+
+// NOTIFICATION
+@mixin notification_UI{
+	div#notification_containter{
+		position: fixed;
+		top: 70px;
+		right: 10px;
+		width: 250px;
+		z-index: 100;
+	
+		div.notification{
+			position: relative;
+			margin-bottom: 10px;
+			width: 100%;
+			background-color: $white;
+			height: auto;
+			min-height: 70px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+			border-radius: 4px;
+			transition: all 400ms;
+		
+			span.type{
+				position: absolute;
+				left: 0;
+				top: 0;
+				bottom: 0;
+				width: 15px;
+				display: block;
+				border-top-left-radius: 4px;
+				border-bottom-left-radius: 4px;
+		
+				&.success{ background-color: $med_green; }
+				&.info{ background-color: $med_blue; }
+				&.error{ background-color: $med_red; }
+			}
+			span.delete{
+				position: absolute;
+				top: 2px;
+				right: 3px;
+				font-size: 1.5rem;
+				color: $dark_blue;
+				background-color: $white;
+				padding: 3px 5px;
+				border-radius: 2px;
+				transition: all 200ms;
+				cursor: pointer;
+		
+				&:hover{
+					background-color: $med_red;
+					color: $white;
+				}
+			}
+			p.date{
+				padding: 10px 0 10px 25px;
+				font-size: 1rem;
+				color: #999;
+			}
+			p.message{
+				padding: 0px 10px 10px 25px;
+				font-size: 1.5rem;
+				color: $dark_blue;
+			}
+		}
+	}
+}
+
+// ALERTS
+@mixin alert_UI{
+	div.alert_containter{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 40;
+
+
+		div.alert{
+			position: relative;
+			width: 80%;
+			max-width: 400px;
+			margin: 200px auto;
+			background-color: $white;
+			color: $med_blue;
+			border-radius: 4px;
+			box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.8);
+			overflow: auto;
+			border: 0;
+			padding: 0;
+			z-index: 41;
+
+			div.header{
+				padding: 10px 0 10px 20px;
+				border-top-left-radius: 4px;
+				border-top-right-radius: 4px;
+				margin: 0;
+				position: relative;
+
+				&.error{
+					background-color: $med_red;
+					color: $white;
+					font-size: 2rem;
+				}
+
+				h2{
+					color:$white;
+					width: 100%;
+					text-align: left;
+					font-size: 1.6rem;
+					font-weight: 600;
+				}
+			}
+			div.body{
+				min-height: 100px;
+
+				p{
+					font-size: 1.4rem;
+					font-weight: 400;
+					text-align: center;
+					width: auto;
+					color: $med_grey;
+					margin: 30px;
+				}
+				div.button_container{
+					width: 300px;
+					margin: 0px auto;
+
+					a{
+
+						&:last-child{ float: right; }
+					}
+				}
+			}
+			&.error div.header{ background-color: $med_red;}
+			&.info div.header{ background-color: $med_blue;}
+		}
+		div.BG_darkfilter{
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background-color: rgba(0, 0, 0, 0.5);
+		}
+	}
+}
