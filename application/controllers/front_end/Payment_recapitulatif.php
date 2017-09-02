@@ -8,7 +8,7 @@ class Payment_recapitulatif extends CI_Controller {
 		$this->load->model('front_end/Artist_Model');
 	}
 
-	public function index(){
+	public function index( $id ){
 		$this->load->view('front_end/includes/head.php');
 		$data = array();
 		$data['anchor'] = 'shop';

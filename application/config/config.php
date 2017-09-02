@@ -2,8 +2,8 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 // $config['base_url'] = 'http://lepetitbateau.com.au/';
-$config['base_url'] = 'http://localhost/Le_Petit_Bateau/';
-$config['Mailchimp_api_key'] = '864a5be116803c6efde5be203c3d1e64-us16';
+$config['base_url'] = 'http://localhost/LePetitBateau/';
+$config['Mailchimp_api_key'] = '';
 $config['index_page'] = '';
 $config['uri_protocol']	= 'REQUEST_URI';
 $config['url_suffix'] = '';

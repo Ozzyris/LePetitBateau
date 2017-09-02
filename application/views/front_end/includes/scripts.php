@@ -1,4 +1,5 @@
 <script src="<?php echo base_url(); ?>assets/front_end/plugins/jQuery.js"></script>
+<script src="<?php echo base_url(); ?>assets/front_end/plugins/moment.js"></script>
 <script src="<?php echo base_url(); ?>assets/front_end/scripts/main.js"></script>
 <script src="<?php echo base_url(); ?>assets/front_end/scripts/payment_address.js"></script>
 

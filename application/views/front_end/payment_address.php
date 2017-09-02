@@ -10,7 +10,7 @@
 
 	<section class="breadcrumb">
 		<p>
-			<a class="active" >Adress</a>  >  <a>Verification & Payment</a>  >  <a>Confirmation</a>
+			<a class="active" >Address</a>  >  <a>Verification & Payment</a>  >  <a>Confirmation</a>
 		</p>
 	</section>
 
@@ -23,42 +23,42 @@
 				<div class="input_container">
 					<div class="input_group text">
 						<label>First Name</label>
-						<input id="input_firstName" name="input_name" type="text"/>
+						<input id="input_firstName" name="input_name" type="text" value="Alexandre" />
 						<p></p>
 					</div>
 					<div class="input_group text">
 						<label>Last Name</label>
-						<input id="input_lastName" name="input_surname" type="text"/>
+						<input id="input_lastName" name="input_surname" type="text" value="Nicol"/>
 						<p></p>
 					</div>
 				</div>
 				<div class="input_container">
 					<div class="input_group text">
 						<label>Email</label>
-						<input id="input_email" name="input_email" type="email"/>
+						<input id="input_email" name="input_email" type="email" value="nemokervi@yahoo.fr" />
 						<p></p>
 					</div>
 				</div>
 				<div class="input_container">
 					<div class="input_group text">
 						<label>Address</label>
-						<input id="input_address" name="input_adress" type="text"/>
+						<input id="input_address" name="input_adress" type="text" value="Kervehennec" />
 						<p></p>
 					</div>
 				</div>
 				<div class="input_container">
 					<div class="input_group text">
 						<label>Post Code</label>
-						<input id="input_postalcode" name="input_postalcode" type="text"/>
+						<input id="input_postalcode" name="input_postalcode" type="text" value="56700" />
 						<p></p>
 					</div>
 					<div class="input_group select">
 						<label>Region</label>
 						<div class="selectwrapper">
-							<select name="region_input" id="region_input">
+							<select name="input_region" id="input_region">
 								<option value="" disabled selected>Select a region</option>
 								<option value="ACT">Australian Capital Territory</option>
-								<option value="NSW">New South Wales</option>
+								<option value="NSW" selected>New South Wales</option>
 								<option value="NT">Northern Territory</option>
 								<option value="QLD">Queensland</option>
 								<option value="SA">South Australia</option>
@@ -73,7 +73,7 @@
 				<div class="input_container">
 					<div class="input_group text">
 						<label>City</label>
-						<input id="input_city" name="input_city" type="text"/>
+						<input id="input_city" name="input_city" type="text" value="Kervignac" />
 						<p></p>
 					</div>
 				</div>
@@ -83,7 +83,7 @@
 						<div class="selectwrapper">
 							<select name="input_country" id="input_country">
 								<option value="" disabled selected>Select a country</option>
-								<option value="Australia">Australia</option>
+								<option value="Australia" selected>Australia</option>
 							</select>
 						</div>
 						<p></p>
